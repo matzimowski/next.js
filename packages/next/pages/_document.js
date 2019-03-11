@@ -215,7 +215,7 @@ export class Head extends Component {
                 }}
               />
             </noscript>
-            <script async src="https://cdn.ampproject.org/v0.js" />
+            <script defer src="https://cdn.ampproject.org/v0.js" />
           </>
         )}
         {!amphtml && (
@@ -280,7 +280,7 @@ export class NextScript extends Component {
     return dynamicImports.map(bundle => {
       return (
         <script
-          async
+          defer
           key={bundle.file}
           src={`${assetPrefix}/_next/${
             bundle.file
@@ -310,7 +310,7 @@ export class NextScript extends Component {
           key={file}
           src={`${assetPrefix}/_next/${file}${_devOnlyInvalidateCacheQueryString}`}
           nonce={this.props.nonce}
-          async
+          defer
           crossOrigin={this.props.crossOrigin || process.crossOrigin}
         />
       )
@@ -419,7 +419,7 @@ export class NextScript extends Component {
         )}
         {page !== '/_error' && (
           <script
-            async
+            defer
             id={`__NEXT_PAGE__${page}`}
             src={`${assetPrefix}/_next/static/${buildId}/pages${getPagePathname(
               page
@@ -429,7 +429,7 @@ export class NextScript extends Component {
           />
         )}
         <script
-          async
+          defer
           id={`__NEXT_PAGE__/_app`}
           src={`${assetPrefix}/_next/static/${buildId}/pages/_app.js${_devOnlyInvalidateCacheQueryString}`}
           nonce={this.props.nonce}
